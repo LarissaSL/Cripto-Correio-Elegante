@@ -1,0 +1,537 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Antic&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --cor-fundo: #E2C799;
+    --cor1: #113946;
+    --cor1--hover:#1e5d72;
+    
+    --cor2: #1D7997;
+    --cor2--hover:#53AAC7;
+
+    --cor3: #FA1920;
+    --cor3--hover: #F16166;
+    
+    --cor4: #FCFCFC;
+    --fonte--destaque: 'Amatic SC', sans-serif;
+    --fonte--destaque2: 'Antic', sans-serif;
+    --fonte--padrao: 'Montserrat', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #E2C799;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+}
+
+header img {
+    width: 115px;
+    margin: 23px auto 0;
+}
+
+.barraNav {
+    width: 90%;
+    margin: 11px auto;
+    height: 1px;
+    background-color: var(--cor1);
+}
+
+.menuNav {
+    display: flex;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+}
+
+.opcaoNav {
+    font-family: var(--fonte--destaque2);
+    color: var(--cor1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.opcaoNav:hover {
+    transform: scale(1.2);
+    color: var(--cor4);
+}
+
+/* Inicio do começo do Site e Explicação do que ele faz */
+section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+}
+
+.containerImagens {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin: 2.5rem 0 1.813rem;
+    gap: .5rem;
+}
+
+.imagem {
+    background-color: var(--cor4);
+    border-radius: 50%;
+    width: 6.063rem;
+    height: 6.063rem;
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+}
+
+.imagem:hover {
+    transform: scale(1.1);
+}
+
+
+.imagem img {
+    position: absolute;
+    bottom: 0;
+    width: 6rem;
+}
+
+.sessaoInicioConteudo,
+.sessaoPassoRemetenteConteudo,
+.sessaoPassoDestinatarioConteudo {
+    margin: 0 1rem;
+}
+
+
+h1 {
+    font-family: var(--fonte--destaque);
+    font-size: 2rem;
+    color: var(--cor3);
+    font-weight: 700;
+    margin: 0 auto;
+}
+
+p {
+    font-family: var(--fonte--padrao);
+    font-size: 0.813rem;
+    color: var(--cor1);
+}
+
+/* Inicio da Parte das Opções, onde tem Botoes e Texto */
+.containerRemetente {
+    margin: 2rem 0;
+}
+
+.conteudoContainer {
+    display: flex;
+    justify-content: flex-start;
+    gap: 3rem;
+}
+
+.opcaoRemetente1,
+.opcaoRemetente2,
+.opcaoDestinatario {
+    display: inline-block;
+    border-radius: 10px;
+    border: none;
+    width: 8.875rem; 
+    height: 2.5rem;
+    text-align: center;
+    line-height: 2.5rem;
+    font-family: var(--fonte--destaque);
+    font-size: 1.25rem;
+    color: var(--cor4); 
+}
+
+.opcaoDestinatario {
+    width: 10rem;
+    background-color: var(--cor3);
+}
+
+.opcaoDestinatario:hover{
+    background-color: var(--cor3--hover);
+}
+
+.opcaoRemetente1 {
+    background-color: var(--cor2);
+}
+
+.opcaoRemetente1:hover {
+    background-color: var(--cor2--hover); 
+}
+
+.opcaoRemetente2 {
+    background-color: var(--cor1);
+}
+
+.opcaoRemetente2:hover {
+    background-color: var(--cor1--hover);
+}
+
+
+.opcaoRemetente1 .texto,
+.opcaoRemetente2 .texto {
+    max-width: 8.875rem; 
+}
+
+.textoDestinatario {
+    max-width: 12.063rem;
+    text-align: center;
+}
+
+.textoDestaque2 {
+    color: var(--cor2);
+}
+
+.textoDestaque3 {
+    color: var(--cor3);
+}
+
+.containerDestinatario {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+
+
+/* Inicio da Sessao do Passo a Passo do Rementente */
+.sessaoPassoRemetente {
+    background-color: #FFFFFF;
+}
+
+/* Ondinha no começo e final dessa sessão */
+.wave,
+.wave2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.wave  svg,
+.wave2 svg {
+    position: relative;
+    display: block;
+    width: calc(123% + 1.3px);
+    height: 63px;
+}
+
+.wave .shape-fill {
+    fill: #FFFFFF;
+}
+
+.wave2 .shape-fill {
+    fill: #E2C799;
+}
+
+/* Começo da Estilização tutorial pro Rementente */
+.subtitulo1,
+.passo,
+.textoPasso,
+.opcaoEstouProntoRemetente,
+.opcaoEstouProntoDestinatario {
+    font-family: var(--fonte--destaque);
+    font-weight: 700;
+}
+
+.passo,
+.textoPasso,
+.explicacaoPasso {
+    color: var(--cor4);
+}
+
+
+.subtitulo1 {
+    font-size: 2rem;
+    margin: 2rem 0 .7rem;
+    color: var(--cor1);
+}
+
+.passo {
+    font-size: 2.5rem;
+    margin: 0; 
+}
+
+.textoPasso {
+    font-size: 1.5rem;
+    margin: 0 0 2rem;
+}
+
+.passoRemetente,
+.passoDestinatario {
+    width: 17.5rem;
+    height: auto;
+    border-radius: 15px;
+    text-align: center;
+    padding: 1rem;
+}
+
+.passoRemetente {
+    background-color: var(--cor1);
+}
+
+.passoDestinatario {
+    background-color: var(--cor3);
+}
+
+.containerTutorial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.passoRemetente p,
+.passoDestinatario p{
+    max-width: 229px;
+    text-align: center; 
+    display: inline-block;
+}
+
+.opcaoEstouProntoRemetente {
+    margin: 2.8rem auto 5rem;
+    font-size: 1.5rem;
+    background-color: var(--cor1);
+    padding: .8rem;
+    width: 10rem;
+    text-align: center;
+    line-height: 1.5rem;
+    color: var(--cor4);
+    border-radius: 10px;
+}
+
+.opcaoEstouProntoRemetente:hover {
+    background-color: var(--cor1--hover);
+}
+
+/* Modificando o necessário no tutorial do Destinatario */
+.subtitulo2 {
+    font-family: var(--fonte--destaque);
+    font-weight: 700;
+    font-size: 2rem;
+    margin: 2rem 0 .7rem;
+    color: var(--cor3);
+}
+
+.opcaoEstouProntoDestinatario {
+    margin: 2.8rem auto 5rem;
+    font-size: 1.5rem;
+    background-color: var(--cor3);
+    padding: .8rem;
+    width: 10rem;
+    text-align: center;
+    line-height: 1.5rem;
+    color: var(--cor4);
+    border-radius: 10px;
+}
+
+.opcaoEstouProntoDestinatario:hover {
+    background-color: var(--cor3--hover);
+}
+
+/* Footer */
+footer {
+    background-color: var(--cor4);
+    height: 10rem;
+    text-align: center;
+    padding: 1.5rem 1.5rem 1rem;
+}
+
+.footerLink img {
+    height: 1.5rem;
+}
+
+.dev {
+    margin-top: .5rem;
+}
+
+footer .texto{
+    margin: .5rem auto 2rem;
+}
+
+/* Responsividade */
+@media (min-width: 600px) {
+    .containerImagens {
+        justify-content: center;
+        gap: 4rem;
+    }
+    
+    .imagem {
+        width: 9.563rem;
+        height: 9.563rem;
+    }
+    
+    .imagem img {
+        width: 10rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+    
+    .containerRemetente {
+        margin: 3rem 0;
+    }
+    
+
+    .opcaoRemetente1,
+    .opcaoRemetente2,
+    .opcaoDestinatario {
+        width: 11rem; 
+        height: 3rem;
+        font-size: 2rem;
+    }
+    
+    .opcaoDestinatario{
+        width: 13rem;
+    }
+
+    .subtitulo1,
+    .subtitulo2,
+    .passo {
+        font-size: 3rem;
+    }
+
+
+    .passoRemetente,
+    .passoDestinatario {
+        width: 19rem;
+    }
+
+    .containerTutorial {
+        gap: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    header img {
+        width: 10rem;
+        margin: 1.5rem auto 0;
+    }
+    
+    .barraNav {
+        width: 90%;
+        margin: 1rem auto;
+        height: 2px;
+    }
+
+    .opcaoNav {
+        font-size: 1.5rem;
+    
+    }
+    
+    .containerImagens {
+        margin-top: 5rem;
+        gap: 5rem;
+    }
+    
+    .imagem {
+        width: 12rem;
+        height: 12rem;
+    }
+    
+    .imagem img {
+        width: 13rem;
+    }
+
+    .sessaoInicioConteudo,
+    .sessaoPassoRemetenteConteudo,
+    .sessaoPassoDestinatarioConteudo {
+        margin: 0 3rem;
+    }
+
+    h1 {
+        font-size: 3.2rem;
+    }
+    
+    p {
+        font-size: 1.2rem;
+    }
+    
+    .containerRemetente {
+        margin: 4rem 0;
+    }
+
+    .conteudoContainer {
+        justify-content: space-around;
+    }
+
+    .opcaoRemetente{
+        max-width: 350px;
+    }
+    
+    .textoDestinatario {
+        max-width: 20rem;
+    }
+
+    .containerTutorial {
+        flex-direction: row;
+        justify-content: center;
+        gap: 3rem;
+    }
+
+    .passoRemetente,
+    .passoDestinatario {
+        height: 35rem;
+    }  
+}
+
+@media (min-width: 1800px) {
+    .containerImagens {
+        margin-top: 5rem;
+        gap: 5rem;
+    }
+    
+    .imagem {
+        width: 15rem;
+        height: 15rem;
+    }
+    
+    .imagem img {
+        width: 16rem;
+    }
+    
+    .conteudoContainer {
+        justify-content: center;
+        gap: 20rem;
+    }
+
+    .opcaoDestinatario {
+        width: 20%;
+        background-color: var(--cor3);
+    }
+
+    footer {
+        height: 14rem;
+        padding: 2rem 1.5rem 1rem;
+    }
+
+    .dev {
+        margin-top: 1.5rem;
+    }
+
+    .footerLink img {
+        height: 2rem;
+    }
+    
+
+}
+    
+
+
+
+
+
+
