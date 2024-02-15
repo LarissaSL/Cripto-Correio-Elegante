@@ -13,6 +13,7 @@
     --cor3: #FA1920;
     --cor3--hover: #F16166;
     --cor4: #FCFCFC;
+    --cor5--fechar: #EE404C;
     --fonte--destaque: 'Amatic SC', sans-serif;
     --fonte--destaque2: 'Antic', sans-serif;
     --fonte--padrao: 'Montserrat', sans-serif;
@@ -24,6 +25,10 @@ body {
     padding: 0;
     box-sizing: border-box;
     background: var(--cor-fundo);
+}
+
+button {
+    cursor: pointer;
 }
 
 header {

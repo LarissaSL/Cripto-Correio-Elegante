@@ -6,8 +6,8 @@ const substitutoI = 'imes';
 const substitutoO = 'ober';
 const substitutoU = 'ufat';
 
-
-// OBS.: Falta Estudar Sobre os Modal, para os feedbacks sairem do Console e falta o botão Enviar
+const caminhoIconeAlerta = '/assets/img/atencao.png';
+const caminhoIconeSucesso = '/assets/img/circulo.png';
 
 
 function selecionarElementoHtml(seletor) {
@@ -17,20 +17,27 @@ function selecionarElementoHtml(seletor) {
 let textoDeEntrada = selecionarElementoHtml("#entradaUser");
 let textoResultado = selecionarElementoHtml("#resultado");
 
+let modalFeedback = selecionarElementoHtml("#modalDeFeedback");
+let modalEmail = selecionarElementoHtml("#modalDoEnviar");
+
 function copiarTexto() {
     const texto = textoResultado.value;
 
     if (texto == "") {
-        console.log("Não há nada a ser copiado");
+        abrirModal("modalDeFeedback");
+        criaConteudoNoModal("Não há nenhuma mensagem a ser Copiada", caminhoIconeAlerta, "Sinal de Alerta");
     } else {
         navigator.clipboard.writeText(texto);
-        console.log("Texto copiado com sucesso!");
+
+        abrirModal("modalDeFeedback");
+        criaConteudoNoModal("Mensagem copiada com sucesso!", caminhoIconeSucesso, "Sinal de Sucesso"); 
     }
 }
 
 function apagarTexto() {
     if (textoDeEntrada.value == "" || textoResultado.value == "") {
-        console.log("Não há nada a ser apagado");
+        abrirModal("modalDeFeedback");
+        criaConteudoNoModal("Não há nenhuma mensagem a ser Apagada", caminhoIconeAlerta, "Sinal de Alerta");
     } else {
         textoDeEntrada.value = "";
         textoResultado.value = "";
@@ -45,7 +52,8 @@ function criptografar() {
     const texto = textoDeEntrada.value;
 
     if (texto == "") {
-        console.log("Não há nada a ser criptografado");
+        abrirModal("modalDeFeedback");
+        criaConteudoNoModal("Não há nenhuma mensagem a ser Criptografada", caminhoIconeAlerta, "Sinal de Alerta");
     } else {
         const textoCriptografado = texto
             .replace("e", substitutoE)
@@ -63,7 +71,8 @@ function descriptografar() {
     const entrada = textoDeEntrada.value;
 
     if (entrada == "") {
-        console.log("Não há nada a ser descriptografado");
+        abrirModal("modalDeFeedback");
+        criaConteudoNoModal("Não há nenhuma mensagem a ser Descriptografada", caminhoIconeAlerta, "Sinal de Alerta");
     } else {
         //Criei uma Expressao Regular nova com todos os substitutos das Letras
         const padrao = new RegExp(`${substitutoE}|${substitutoI}|${substitutoA}|${substitutoO}|${substitutoU}`);
@@ -85,4 +94,21 @@ function descriptografar() {
 
         textoResultado.value = textoDescriptografado;
     }
+}
+
+function abrirModal(idDoModal) {
+    document.getElementById(idDoModal).style.display = "block";
+}
+
+function fecharModal(idDoModal) {
+    document.getElementById(idDoModal).style.display = "none";
+}
+
+function criaConteudoNoModal(texto, caminhoDoIcone, altDoIcone) {
+    const pDoModalSelecionado = selecionarElementoHtml("#modalGenericoTexto");
+    const imgDoModalSelecionado = selecionarElementoHtml("#iconeDeFeedback");
+
+    pDoModalSelecionado.textContent = texto;
+    imgDoModalSelecionado.src = caminhoDoIcone;
+    imgDoModalSelecionado.alt = altDoIcone;
 }
