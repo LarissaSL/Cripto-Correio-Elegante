@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/recado.css">
+
+    <link rel="shortcut icon" href="/assets/img/logoFundo.png" type="image/x-icon">
+
+    <title>Cripto Correio Elegante</title>
+</head>
+<body>
+    <header>
+        <img src="/assets/img/logo.png" alt="Logo Cripto Correio Elegante">
+
+        <div class="barraNav"></div>
+        <nav class="menuNav">
+            <a href="index.html" class="opcaoNav">Inicio</a>
+            <a href="recado.html" class="opcaoNav">Recado</a>
+        </nav>
+        <div class="barraNav"></div>
+    </header>
+
+    <main>
+        <section class="sessaoInicioConteudo">
+            <h1 class="titulo">Hora de criar ou desvendar sua Mensagem!</h1>
+            <p class="texto"><i>Caso precise de ajuda 
+                <a class="ajuda" href="index.html#tutorialRemetente"><strong>Clique aqui</strong></i>
+                </a>
+            </p>
+
+            <div class="acoesDoUsuario">
+                <div class="entradaDoUsuario">
+                    <textarea class="entrada" id="entradaUser" placeholder="Digite a mensagem aqui..."></textarea>
+                    
+                    <div class="botoesDupla">
+                        <button class="acao" id="botaoCriptografar" onclick="criptografar()">Criptografar</button>
+                        <button class="acao" id="botaoDescriptografar" onclick="descriptografar()">Descriptografar</button>
+                    </div>
+                </div>
+                
+                <div class="saidaDoUsuario">
+                    <textarea class="saida" id="resultado" placeholder="Sua mensagem criptografada ou descriptografa aparecerá aqui..."></textarea>
+                    
+                    <div class="botoesTrio">
+                        <button class="acao" id="botaoCopiar" onclick="copiarTexto()">Copiar</button>
+                        <button class="acao" id="botaoApagar" onclick="apagarTexto()">Apagar</button>
+                        <button class="acao" id="botaoEnviar" onclick="enviarTexto()">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="conteudoFooter">
+            <div class="dev">
+                <div class="icones">
+                    <a href="https://github.com/LarissaSL" target="_blank" class="footerLink">
+                        <img src="/assets/img/github.png" alt="Logo do GitHub">
+                    </a>
+                    <a href="https://www.linkedin.com/in/larissasilvasl/" target="_blank" class="footerLink">
+                        <img src="/assets/img/linkedin.png" alt="Logo do LinkedIn">
+                    </a>
+                </div>
+                <p class="texto">
+                    Design e Desenvolvimento por <strong>Larissa Silva</strong>
+                </p>
+            </div>
+
+            <div class="design">
+                <div class="icones">
+                    <a href="http://www.freepik.com" target="_blank" class="footerLink">
+                        <img src="/assets/img/freepik.png" alt="Logo do Freepik">
+                    </a>
+                </div>
+                <p class="texto">
+                    Imagens e Icones Designed by Freepik
+                </p>
+            </div>
+        </div>
+
+
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
+
+

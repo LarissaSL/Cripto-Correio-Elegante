@@ -1,0 +1,161 @@
+/* CSS Global */
+
+/* Importação de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Antic&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Variáveis de cores e fontes */
+:root {
+    --cor-fundo: #E2C799;
+    --cor1: #113946;
+    --cor1--hover: #1e5d72;
+    --cor2: #1D7997;
+    --cor2--hover: #53AAC7;
+    --cor3: #FA1920;
+    --cor3--hover: #F16166;
+    --cor4: #FCFCFC;
+    --fonte--destaque: 'Amatic SC', sans-serif;
+    --fonte--destaque2: 'Antic', sans-serif;
+    --fonte--padrao: 'Montserrat', sans-serif;
+}
+
+/* Estilos gerais */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: var(--cor-fundo);
+}
+
+header {
+    width: 100%;
+    text-align: center;
+}
+
+header img {
+    width: 115px;
+    margin: 23px auto 0;
+}
+
+.barraNav {
+    width: 90%;
+    margin: 11px auto;
+    height: 1px;
+    background-color: var(--cor1);
+}
+
+.menuNav {
+    display: flex;
+    justify-content: space-around;
+}
+
+.opcaoNav {
+    font-family: var(--fonte--destaque2);
+    color: var(--cor1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.opcaoNav:hover {
+    transform: scale(1.2);
+    color: var(--cor4);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Estilos para seções */
+section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+}
+
+/* Estilos para títulos e parágrafos */
+h1 {
+    font-family: var(--fonte--destaque);
+    font-size: 2rem;
+    color: var(--cor3);
+    font-weight: 700;
+    margin: 0 auto;
+}
+
+p {
+    font-family: var(--fonte--padrao);
+    font-size: 0.813rem;
+    color: var(--cor1);
+}
+
+/* Estilos para o rodapé */
+footer {
+    background-color: var(--cor4);
+    height: 10rem;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.footerLink img {
+    height: 1.5rem;
+}
+
+.dev {
+    margin-top: .5rem;
+}
+
+footer .texto{
+    margin: .5rem auto 2rem;
+}
+
+
+/* Responsividade apenas dos elementos globais*/
+@media (min-width: 600px) {
+    h1 {
+        font-size: 3rem;
+        margin: 0;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    header img {
+        width: 10rem;
+        margin: 1.5rem auto 0;
+    }
+    
+    .barraNav {
+        width: 90%;
+        margin: 1rem auto;
+        height: 2px;
+    }
+
+    .opcaoNav {
+        font-size: 1.5rem;
+    
+    }
+
+    h1 {
+        font-size: 3.2rem;
+    }
+    
+    p {
+        font-size: 1.2rem;
+    } 
+}
+
+@media (min-width: 1800px) {
+    footer {
+        height: 14rem;
+        padding: 2rem 1.5rem 1rem;
+    }
+
+    .dev {
+        margin-top: 1.5rem;
+    }
+
+    .footerLink img {
+        height: 2rem;
+    }
+}
