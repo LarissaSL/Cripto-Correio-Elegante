@@ -9,16 +9,49 @@ const substitutoU = 'ufat';
 const caminhoIconeAlerta = '/assets/img/atencao.png';
 const caminhoIconeSucesso = '/assets/img/circulo.png';
 
-
-function selecionarElementoHtml(seletor) {
-    return document.querySelector(seletor);
-}
-
 let textoDeEntrada = selecionarElementoHtml("#entradaUser");
 let textoResultado = selecionarElementoHtml("#resultado");
 
 let modalFeedback = selecionarElementoHtml("#modalDeFeedback");
 let modalEmail = selecionarElementoHtml("#modalDoEnviar");
+
+function abrirModal(idDoModal) {
+    document.getElementById(idDoModal).style.display = "block";
+}
+
+function fecharModal(idDoModal) {
+    document.getElementById(idDoModal).style.display = "none";
+}
+
+function criaConteudoNoModal(texto, caminhoDoIcone, altDoIcone) {
+    const pDoModalSelecionado = selecionarElementoHtml("#modalGenericoTexto");
+    const imgDoModalSelecionado = selecionarElementoHtml("#iconeDeFeedback");
+
+    pDoModalSelecionado.textContent = texto;
+    imgDoModalSelecionado.src = caminhoDoIcone;
+    imgDoModalSelecionado.alt = altDoIcone;
+}
+
+function checarInput(input) {
+    const possiveisEntradasIrregulares = new RegExp(/[A-ZÀ-ÖØ-öø-ÿ0-9]/);
+
+        /* Verifcação se o input tem alguma entrada irregular */
+        if (input == "") {
+            abrirModal("modalDeFeedback");
+            criaConteudoNoModal("Não há nenhuma mensagem", caminhoIconeAlerta, "Sinal de Alerta");
+            return false;
+        } if (possiveisEntradasIrregulares.test(input)){
+            abrirModal("modalDeFeedback")
+            criaConteudoNoModal("Mensagem inválida, apenas letras minúsculas e sem acentos são permitidas", caminhoIconeAlerta, "Sinal de Alerta");;
+            return false;
+        } else {
+            return true;
+        }
+}
+
+function selecionarElementoHtml(seletor) {
+    return document.querySelector(seletor);
+}
 
 function copiarTexto() {
     const texto = textoResultado.value;
@@ -49,66 +82,47 @@ function enviarTexto() {
 }
 
 function criptografar() {
-    const texto = textoDeEntrada.value;
+    const statusDoInput = checarInput(textoDeEntrada.value);
 
-    if (texto == "") {
-        abrirModal("modalDeFeedback");
-        criaConteudoNoModal("Não há nenhuma mensagem a ser Criptografada", caminhoIconeAlerta, "Sinal de Alerta");
-    } else {
+    if (statusDoInput){
+        const texto = textoDeEntrada.value;
+
         const textoCriptografado = texto
-            .replace("e", substitutoE)
-            .replace("i", substitutoI)
-            .replace("a", substitutoA)
-            .replace("o", substitutoO)
-            .replace("u", substitutoU);
+            .replace(/e/g, substitutoE)
+            .replace(/i/g, substitutoI)
+            .replace(/a/g, substitutoA)
+            .replace(/o/g, substitutoO)
+            .replace(/u/g, substitutoU);
 
         textoResultado.value = textoCriptografado;
     }
 }
 
 function descriptografar() {
+    const statusDoInput = checarInput(textoDeEntrada.value);
     let textoParaDescriptografar;
-    const entrada = textoDeEntrada.value;
 
-    if (entrada == "") {
-        abrirModal("modalDeFeedback");
-        criaConteudoNoModal("Não há nenhuma mensagem a ser Descriptografada", caminhoIconeAlerta, "Sinal de Alerta");
-    } else {
+    if (statusDoInput){
+        const texto = textoDeEntrada.value;
+
         //Criei uma Expressao Regular nova com todos os substitutos das Letras
-        const padrao = new RegExp(`${substitutoE}|${substitutoI}|${substitutoA}|${substitutoO}|${substitutoU}`);
+        const padraoCriptografia = new RegExp(`${substitutoE}|${substitutoI}|${substitutoA}|${substitutoO}|${substitutoU}`);
 
         /* Verifcação de onde eu preciso pegar o texto para descriptografar (Se da  entrada ou do resultado) 
         utilizando o Metodo Test que as RE tem */
-        if (padrao.test(entrada)) {
-            textoParaDescriptografar = entrada;
+        if (padraoCriptografia.test(texto)) {
+            textoParaDescriptografar = texto;
         } else {
             textoParaDescriptografar = textoResultado.value;
         }
 
         const textoDescriptografado = textoParaDescriptografar
-            .replace(substitutoE, "e")
-            .replace(substitutoI, "i")
-            .replace(substitutoA, "a")
-            .replace(substitutoO, "o")
-            .replace(substitutoU, "u");
+            .replace(substitutoE/'g', "e")
+            .replace(substitutoI/'g', "i")
+            .replace(substitutoA/'g', "a")
+            .replace(substitutoO/'g', "o")
+            .replace(substitutoU/'g', "u");
 
         textoResultado.value = textoDescriptografado;
-    }
-}
-
-function abrirModal(idDoModal) {
-    document.getElementById(idDoModal).style.display = "block";
-}
-
-function fecharModal(idDoModal) {
-    document.getElementById(idDoModal).style.display = "none";
-}
-
-function criaConteudoNoModal(texto, caminhoDoIcone, altDoIcone) {
-    const pDoModalSelecionado = selecionarElementoHtml("#modalGenericoTexto");
-    const imgDoModalSelecionado = selecionarElementoHtml("#iconeDeFeedback");
-
-    pDoModalSelecionado.textContent = texto;
-    imgDoModalSelecionado.src = caminhoDoIcone;
-    imgDoModalSelecionado.alt = altDoIcone;
+    } 
 }

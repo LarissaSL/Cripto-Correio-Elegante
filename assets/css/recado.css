@@ -10,6 +10,10 @@
     color: var(--cor2--hover);
 }
 
+.aviso img {
+    width: 1rem;
+}
+
 .entrada,
 .saida {
     font-family: var(--fonte--padrao);
@@ -23,6 +27,10 @@
     padding: 1rem;
     overflow-y: auto;
     resize: none;
+}
+
+.entrada {
+    margin-top: 0;
 }
 
 .botoesTrio, 
@@ -235,6 +243,10 @@
 }
 
 @media (min-width: 1800px) {
+    .aviso img {
+        width: 1.5rem;
+    }
+    
     .acoesDoUsuario {
         display: flex;
         justify-content: center;
