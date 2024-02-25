@@ -6,8 +6,8 @@ const substitutoI = 'imes';
 const substitutoO = 'ober';
 const substitutoU = 'ufat';
 
-const caminhoIconeAlerta = '/assets/img/atencao.png';
-const caminhoIconeSucesso = '/assets/img/circulo.png';
+const caminhoIconeAlerta = './assets/img/atencao.png';
+const caminhoIconeSucesso = './assets/img/circulo.png';
 
 let textoDeEntrada = selecionarElementoHtml("#entradaUser");
 let textoResultado = selecionarElementoHtml("#resultado");
@@ -35,7 +35,8 @@ function criaConteudoNoModal(texto, caminhoDoIcone, altDoIcone) {
 function checarInput(input) {
     const possiveisEntradasIrregulares = new RegExp(/[A-ZÀ-ÖØ-öø-ÿ0-9]/);
 
-        /* Verifcação se o input tem alguma entrada irregular */
+        /* Verifcação se o input tem alguma entrada irregular 
+        Caso returne False é porque nao passou no teste*/
         if (input == "") {
             abrirModal("modalDeFeedback");
             criaConteudoNoModal("Não há nenhuma mensagem", caminhoIconeAlerta, "Sinal de Alerta");
@@ -78,6 +79,8 @@ function apagarTexto() {
 }
 
 function enviarTexto() {
+    abrirModal('modalDoEnviar');
+    
     console.log('Trabalhando nisso ainda...');
 }
 

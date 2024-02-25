@@ -31,7 +31,7 @@
                 </a>
                 <p class="aviso">
                     <img src="/assets/img/atencao.png" alt="Icone de Atenção">
-                    <i>Por favor digite sua mensagem apenas com <strong>letras minúsculas</strong> e <strong>sem acentos</strong> serão permitidas</i></p>
+                    <i>Por favor digite sua mensagem apenas com <strong>letras minúsculas</strong> e <strong>sem acentos</strong></i></p>
             </p>
 
             <div class="acoesDoUsuario">
@@ -66,7 +66,37 @@
                 </div> 
             </div>
 
-            <div id="modalDoEnviar" class="modalEnviar"></div>
+            <div id="modalDoEnviar" class="modalEnviar">
+                <div id="cabecalhoModalGenerico">
+                    <button class="texto" id="modalGenericoFechar" onclick="fecharModal('modalDoEnviar')">X</button>
+                </div>
+
+                <div class="modalEnviarConteudo">
+                    <h2 class="enviarTitulo">Hora de Enviar!</h2>
+                    <div class="enviarInformacoesDestinatario">
+                        <p class="texto">Digite um nome para ser sua assinatura</p>
+                        <textarea class="entrada" id="emailRemetente" placeholder="Ex.: Admirador(a) Secreto(a)"></textarea>
+
+                        <p class="texto">Digite o e-mail de quem vai receber sua mensagem por favor.</p>
+                        <textarea class="entrada" id="emailDestinatario" placeholder="E-mail"></textarea>
+
+                        <span class="avisoEmail"><strong>Atenção</strong></span>
+                        <span class="avisoEmail">
+                            Por favor confira se o e-mail do está correto e não se preocupe, não salvamos os dados de ninguém em nossas plataforma.
+                        </span>
+                    </div>
+
+                    <div class="enviarMensagem">
+                        <h3 class="enviarDestaque">Mensagem criptografada</h3>
+                        <textarea class="saida" id="enviarMensagem" placeholder="" readonly></textarea>
+                        
+                        <div class="emailBotoes">
+                            <button class="acao" id="emailBotaoVoltar" onclick="fecharModal('modalDoEnviar')">Voltar</button>
+                            <button class="acao" id="emailBotaoEnviar" onclick="enviarTexto()">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </section>
     </main>
@@ -105,5 +135,3 @@
     <script src="/assets/js/main.js"></script>
 </body>
 </html>
-
-
