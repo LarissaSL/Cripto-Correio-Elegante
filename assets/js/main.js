@@ -207,6 +207,8 @@ function enviarEmail() {
            alert(`Mensagem de: ${nomeRemetente} enviada para: ${emailDestinatario}`)
         );
 
+        fecharModal('modalDoEnviar');
+
     } else {
         alert("Por favor, preencha todos os campos solicitados");
     }
