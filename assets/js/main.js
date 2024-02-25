@@ -6,6 +6,8 @@ const substitutoI = 'imes';
 const substitutoO = 'ober';
 const substitutoU = 'ufat';
 
+const emailCripto = "criptocorreioelegante@gmail.com";
+
 const caminhoIconeAlerta = './assets/img/atencao.png';
 const caminhoIconeSucesso = './assets/img/circulo.png';
 
@@ -14,6 +16,8 @@ let textoResultado = selecionarElementoHtml("#resultado");
 
 let modalFeedback = selecionarElementoHtml("#modalDeFeedback");
 let modalEmail = selecionarElementoHtml("#modalDoEnviar");
+
+const botaoEnviar = selecionarElementoHtml("#botaoEnviarDesabilitado");
 
 function abrirModal(idDoModal) {
     document.getElementById(idDoModal).style.display = "block";
@@ -41,7 +45,8 @@ function checarInput(input) {
             abrirModal("modalDeFeedback");
             criaConteudoNoModal("Não há nenhuma mensagem", caminhoIconeAlerta, "Sinal de Alerta");
             return false;
-        } if (possiveisEntradasIrregulares.test(input)){
+        } 
+        if (possiveisEntradasIrregulares.test(input)){
             abrirModal("modalDeFeedback")
             criaConteudoNoModal("Mensagem inválida, apenas letras minúsculas e sem acentos são permitidas", caminhoIconeAlerta, "Sinal de Alerta");;
             return false;
@@ -75,13 +80,45 @@ function apagarTexto() {
     } else {
         textoDeEntrada.value = "";
         textoResultado.value = "";
+        botaoEnviar.id = "botaoEnviarDesabilitado";
+        botaoEnviar.setAttribute("disabled", "");
     }
 }
 
 function enviarTexto() {
     abrirModal('modalDoEnviar');
-    
-    console.log('Trabalhando nisso ainda...');
+    const mensagemASerEnviada = textoResultado.value;
+
+    const exibirMensagemASerEnviada = selecionarElementoHtml('#enviarMensagem');
+    exibirMensagemASerEnviada.value = mensagemASerEnviada;
+}
+
+function enviarEmail() {
+    const nomeRemetente = selecionarElementoHtml('#emailRemetente').value; 
+    const emailDestinatario = selecionarElementoHtml('#emailDestinatario').value; 
+    const mensagem = selecionarElementoHtml('#enviarMensagem').value;
+
+    if (nomeRemetente !== "" && emailDestinatario !== "") { 
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : emailCripto,
+            Password : "671F71015D3AB2A7E663D7D4E8175E4DFF59",
+            To : emailDestinatario,
+            From : emailCripto,
+            Subject : `CriptoCorreioElegante: Você tem uma nova Mensagem Secreta`,
+            Body : `${mensagem}`,
+        }).then(
+           alert(`Mensagem enviada para ${emailDestinatario} \nde ${emailCripto} com ${nomeRemetente} \ne a mensagem é ${mensagem}`)
+        );
+
+        fecharModal('modalEnviarConteudo');
+
+    } else {
+        alert("Por favor, preencha todos os campos solicitados");
+    }
+
+    console.log(nomeRemetente);
+    console.log(emailDestinatario);
 }
 
 function criptografar() {
@@ -98,6 +135,9 @@ function criptografar() {
             .replace(/u/g, substitutoU);
 
         textoResultado.value = textoCriptografado;
+
+        botaoEnviar.id = "botaoEnviar";
+        botaoEnviar.removeAttribute("disabled");
     }
 }
 
@@ -127,5 +167,7 @@ function descriptografar() {
             .replace(substitutoU/'g', "u");
 
         textoResultado.value = textoDescriptografado;
+        botaoEnviar.id = "botaoEnviarDesabilitado";
+        botaoEnviar.setAttribute("disabled", "");
     } 
 }

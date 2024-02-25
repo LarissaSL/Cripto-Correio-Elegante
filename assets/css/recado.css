@@ -59,6 +59,12 @@
     height: 2.5rem;
 }
 
+#botaoEnviarDesabilitado {
+    background-color: var(--cor3--hover);
+    cursor: auto;
+}
+
+
 #botaoCriptografar,
 #botaoDescriptografar {
     width: 7.688rem;
@@ -66,7 +72,8 @@
 
 #botaoCopiar,
 #botaoApagar,
-#botaoEnviar {
+#botaoEnviar,
+#botaoEnviarDesabilitado {
     width: 5.375rem;
 }
 

@@ -50,7 +50,7 @@
                     <div class="botoesTrio">
                         <button class="acao" id="botaoCopiar" onclick="copiarTexto()">Copiar</button>
                         <button class="acao" id="botaoApagar" onclick="apagarTexto()">Apagar</button>
-                        <button class="acao" id="botaoEnviar" onclick="enviarTexto()">Enviar</button>
+                        <button class="acao" id="botaoEnviarDesabilitado" onclick="enviarTexto()" disabled>Enviar</button>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                         
                         <div class="emailBotoes">
                             <button class="acao" id="emailBotaoVoltar" onclick="fecharModal('modalDoEnviar')">Voltar</button>
-                            <button class="acao" id="emailBotaoEnviar" onclick="enviarTexto()">Enviar</button>
+                            <button class="acao" id="emailBotaoEnviar" onclick="enviarEmail()">Enviar</button>
                         </div>
                     </div>
                 </div>
@@ -133,5 +133,6 @@
     </footer>
 
     <script src="/assets/js/main.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 </body>
 </html>
