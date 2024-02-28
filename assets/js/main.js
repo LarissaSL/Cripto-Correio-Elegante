@@ -89,9 +89,7 @@ function criptografar() {
     const statusDoInput = checarInput(textoDeEntrada.value);
 
     if (statusDoInput){
-        const texto = textoDeEntrada.value;
-
-        const textoCriptografado = texto
+        const textoCriptografado = textoDeEntrada.value
             .replace(/e/g, substitutoE)
             .replace(/i/g, substitutoI)
             .replace(/a/g, substitutoA)
@@ -109,18 +107,19 @@ function descriptografar() {
     const statusDoInput = checarInput(textoDeEntrada.value);
 
     if (statusDoInput) {
-        const textoCriptografado = textoDeEntrada.value;
-
-        const textoDescriptografado = textoCriptografado
-            .replace(new RegExp(substitutoE, 'g'), "e")
-            .replace(new RegExp(substitutoI, 'g'), "i")
-            .replace(new RegExp(substitutoA, 'g'), "a")
-            .replace(new RegExp(substitutoO, 'g'), "o")
-            .replace(new RegExp(substitutoU, 'g'), "u");
-
-            textoResultado.value = textoDescriptografado;
-            botaoEnviar.id = "botaoEnviarDesabilitado";
-            botaoEnviar.setAttribute("disabled", "");
+        let textoDescriptografado = textoDeEntrada.value;
+        for (let index = 0; index < textoDescriptografado.length; index++) {
+            textoDescriptografado
+                .replace(substitutoE, "e")
+                .replace(substitutoI, "i")
+                .replace(substitutoA, "a")
+                .replace(substitutoO, "o")
+                .replace(substitutoU, "u");  
+        }
+             
+        textoResultado.value = textoDescriptografado;
+        botaoEnviar.id = "botaoEnviarDesabilitado";
+        botaoEnviar.setAttribute("disabled", "");
     } 
 }
 
