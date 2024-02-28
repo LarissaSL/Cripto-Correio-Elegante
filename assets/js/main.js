@@ -212,7 +212,4 @@ function enviarEmail() {
     } else {
         alert("Por favor, preencha todos os campos solicitados");
     }
-
-    console.log(nomeRemetente);
-    console.log(emailDestinatario);
 }

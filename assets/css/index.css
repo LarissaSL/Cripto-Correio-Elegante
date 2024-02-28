@@ -35,8 +35,8 @@
 
 
 /* Inicio da Parte das Opções, onde tem Botoes e Texto */
-.containerRemetente {
-    margin: 2rem 0;
+.containerOpcoes {
+    margin: 2rem 0 5rem;
 }
 
 .conteudoContainer {
@@ -45,9 +45,8 @@
     gap: 3rem;
 }
 
-.opcaoRemetente1,
-.opcaoRemetente2,
-.opcaoDestinatario {
+.opcao1,
+.opcao2 {
     display: inline-block;
     border-radius: 10px;
     border: none;
@@ -60,34 +59,24 @@
     color: var(--cor4); 
 }
 
-.opcaoDestinatario {
-    width: 10rem;
+.opcao2 {
     background-color: var(--cor3);
 }
 
-.opcaoDestinatario:hover{
+.opcao2:hover {
     background-color: var(--cor3--hover);
 }
 
-.opcaoRemetente1 {
+.opcao1 {
     background-color: var(--cor2);
 }
 
-.opcaoRemetente1:hover {
+.opcao1:hover {
     background-color: var(--cor2--hover); 
 }
 
-.opcaoRemetente2 {
-    background-color: var(--cor1);
-}
-
-.opcaoRemetente2:hover {
-    background-color: var(--cor1--hover);
-}
-
-
-.opcaoRemetente1 .texto,
-.opcaoRemetente2 .texto {
+.opcao1 .texto,
+.opcao2 .texto {
     max-width: 8.875rem; 
 }
 
@@ -188,6 +177,7 @@
     border-radius: 15px;
     text-align: center;
     padding: 1rem;
+    margin-top: 2rem;
 }
 
 .passoRemetente {
@@ -276,23 +266,25 @@
         margin: 0 2.5rem;
     }
 
-    .containerRemetente {
+    .containerOpcoes {
         margin: 3rem 0;
     }
     
+    .conteudoContainer {
+        margin-bottom: 5rem;
+    }
 
-    .opcaoRemetente1,
-    .opcaoRemetente2,
-    .opcaoDestinatario {
+    .opcao1,
+    .opcao2 {
         width: 11rem; 
         height: 3rem;
         font-size: 2rem;
     }
-    
-    .opcaoDestinatario{
-        width: 13rem;
-    }
 
+    .opcao2 {
+        width: 14rem; 
+    }
+    
     .subtitulo1,
     .subtitulo2,
     .passo {
@@ -325,7 +317,7 @@
         width: 13rem;
     }
 
-    .containerRemetente {
+    .containerOpcoes {
         margin: 4rem 0;
     }
 
@@ -333,7 +325,7 @@
         justify-content: space-around;
     }
 
-    .opcaoRemetente{
+    .opcaoUsuario{
         max-width: 350px;
     }
     
@@ -353,7 +345,25 @@
     }  
 }
 
+@media (min-width: 1440px) {
+    .sessaoInicioConteudo,
+    .sessaoPassoRemetenteConteudo,
+    .sessaoPassoDestinatarioConteudo {
+        margin: 0 6rem;
+    }
+
+    .containerTutorial {
+        gap: 5rem;
+    }
+}
+
 @media (min-width: 1800px) {
+    .sessaoInicioConteudo,
+    .sessaoPassoRemetenteConteudo,
+    .sessaoPassoDestinatarioConteudo {
+        margin: 0 6rem;
+    }
+    
     .containerImagens {
         margin-top: 5rem;
         gap: 5rem;
@@ -371,11 +381,6 @@
     .conteudoContainer {
         justify-content: center;
         gap: 20rem;
-    }
-
-    .opcaoDestinatario {
-        width: 20%;
-        background-color: var(--cor3);
     }
 }
      

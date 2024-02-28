@@ -354,6 +354,10 @@
     .enviarMensagem {
         margin: 4rem 0 1rem;   
     }
+
+    .sessaoInicioConteudo {
+        margin: 0 4rem;
+    }
       
 }
 
@@ -405,5 +409,9 @@
 
     #modalDoEnviar {
         overflow-y: hidden;
+    }
+
+    .sessaoInicioConteudo {
+        margin: 0 6rem;
     }
 }
