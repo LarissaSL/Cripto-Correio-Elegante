@@ -136,6 +136,8 @@ function enviarEmail() {
     const emailDestinatario = selecionarElementoHtml('#emailDestinatario').value; 
     const mensagem = selecionarElementoHtml('#enviarMensagem').value;
 
+    const emailValido = new RegExp(/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/);
+
     //Layout e funcionalidade de enviar e-mail feito com a API Elasticemail e smtpjs.com
     const emailBody = `
     <body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #F5F6F8;">
@@ -194,21 +196,24 @@ function enviarEmail() {
 `;
 
     if (nomeRemetente !== "" && emailDestinatario !== "") { 
-        Email.send({
-            Host : "smtp.elasticemail.com",
-            Username : emailCripto,
-            Password : "671F71015D3AB2A7E663D7D4E8175E4DFF59",
-            To : emailDestinatario,
-            From : emailCripto,
-            Subject : `CriptoCorreioElegante: Você tem uma nova Mensagem Secreta`,
-            Body : emailBody,
-        }).then(
-           alert(`Mensagem de: ${nomeRemetente} enviada para: ${emailDestinatario}`)
-        );
-
-        fecharModal('modalDoEnviar');
-
+        if(emailValido.test(emailDestinatario)) {
+            Email.send({
+                Host : "smtp.elasticemail.com",
+                Username : emailCripto,
+                Password : "671F71015D3AB2A7E663D7D4E8175E4DFF59",
+                To : emailDestinatario,
+                From : emailCripto,
+                Subject : `CriptoCorreioElegante: Você tem uma nova Mensagem Secreta`,
+                Body : emailBody,
+            }).then(
+               alert(`Mensagem de: ${nomeRemetente} enviada para: ${emailDestinatario}`)
+            );
+    
+            fecharModal('modalDoEnviar');
+        } else {
+            alert(`Por favor, insira um e-mail válido`);
+        }
     } else {
         alert("Por favor, preencha todos os campos solicitados");
-    }
+    }  
 }
