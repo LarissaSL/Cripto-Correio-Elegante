@@ -74,7 +74,7 @@ function copiarTexto() {
 }
 
 function apagarTexto() {
-    if (textoDeEntrada.value == "" || textoResultado.value == "") {
+    if (textoDeEntrada.value == "" && textoResultado.value == "") {
         abrirModal("modalDeFeedback");
         criaConteudoNoModal("Não há nenhuma mensagem a ser Apagada", caminhoIconeAlerta, "Sinal de Alerta");
     } else {
